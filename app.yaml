@@ -1,0 +1,24 @@
+runtime: php
+env: flex
+
+runtime_config:
+  document_root: public
+
+env_variables:
+  # Environment variables
+  APP_KEY: base64:8dQ7xw/kM9EYMV4cUkzKgET8jF4P0M0TOmmqN05RN2w=
+  APP_LOG: errorlog
+  APP_ENV: production
+  # Add other environment variables here
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 2
+
+readiness_check:
+  path: "/healthz"
+  check_interval_sec: 5
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+  app_start_timeout_sec: 300
